@@ -30,5 +30,5 @@ window.JFY_DATA = {
   couple_photo: "assets/img/couple.webp",
   hero_image: "assets/img/hero.webp",
   music_url: "assets/music.mp3",
-  music_credit: "\u201CGymnopedie No. 1\u201D (Erik Satie) performed by Kevin MacLeod (incompetech.com), licensed under CC BY 4.0"
+  music_credit: ""
 };
