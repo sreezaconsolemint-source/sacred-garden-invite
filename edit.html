@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Customize your Sacred Garden invitation — Just For You</title>
+<link rel="stylesheet" href="assets/fonts/fonts.css">
+<link rel="stylesheet" href="assets/editor.css">
+<style>:root{--c1:#5a0f1b;--c2:#b07a5a;--c3:#b48c3d;--c4:#4a3326;--mono:linear-gradient(180deg,#7a1e2c,#5a0f1b);--page:linear-gradient(180deg,#fbf4e8,#f1e4cf);--head:'Ovo';--script:'Imperial Script';--ui:'Source Sans 3'}.grp summary{font-size:19px}.sheet h2{font-size:40px}</style>
+</head>
+<body>
+<header class="top">
+  <div class="brand"><span class="brand__mono">✿</span><div><b>The Sacred Garden</b><small>Wedding website invitation</small></div></div>
+  <nav class="tabs" role="tablist"><button type="button" class="tab on" data-view="form">✎ Edit</button><button type="button" class="tab" data-view="preview">👁 Preview</button></nav>
+</header>
+<div class="wrap">
+  <form class="panel" id="ed" autocomplete="off" novalidate></form>
+  <section class="preview" id="preview">
+    <div class="phone"><div class="phone__notch"></div><iframe id="pv" title="Invitation preview"></iframe></div>
+    <p class="pvnote">Live preview · the envelope opening is skipped here, guests will see it</p>
+  </section>
+</div>
+<div class="sheet" id="sheet" hidden>
+  <div class="sheet__card">
+    <button type="button" class="sheet__x" id="sheetX" aria-label="Close">×</button>
+    <div class="sheet__tick">✓</div>
+    <h2>Your invitation is ready!</h2>
+    <p>Share this link with your guests. Everything you typed is saved inside the link.</p>
+    <div class="link"><input id="shareUrl" readonly aria-label="Your invitation link"><button type="button" class="btn btn--main" id="copyBtn">Copy</button></div>
+    <p class="note" id="lenNote"></p>
+    <div class="sheet__btns">
+      <a class="btn btn--wa" id="waShare" target="_blank" rel="noopener">Share on WhatsApp</a>
+      <a class="btn btn--ghost" id="openLink" target="_blank" rel="noopener">Open invitation ↗</a>
+      <button type="button" class="btn btn--ghost" id="nativeShare" hidden>Share…</button>
+    </div>
+  </div>
+</div>
+<script src="assets/sample-data.js"></script>
+<script>
+window.JFY_FORM = {
+  title: 'Wedding invitation', draftKey: 'jfy-sacred-garden-draft',
+  shareText: function (d) { return 'You are invited to the wedding of ' + d.groom_name + ' & ' + d.bride_name + ' 💐'; },
+  groups: [
+    { title: '💍 The Couple', open: true, fields: [
+      { k: 'groom_name', label: "Groom's name", req: true, max: 24, half: true },
+      { k: 'bride_name', label: "Bride's name", req: true, max: 24, half: true },
+      { type: 'note', text: 'The envelope seal shows your initials automatically.' },
+      { k: 'couple_photo', label: 'Couple photo for the closing section', type: 'photo', maxpx: 900 }
+    ]},
+    { title: '📅 Date & Opening Page', open: true, fields: [
+      { k: 'event_date', label: 'Wedding date', type: 'datetime', req: true },
+      { k: 'hero_label', label: 'Small title above the date', max: 30, ph: 'Wedding Day' },
+      { k: 'blessing', label: 'Blessing line', max: 60, hint: 'e.g. Bismillah, ॥ श्री गणेशाय नमः ॥' },
+      { k: 'tagline', label: 'Three-line verse', type: 'textarea', rows: 3, max: 110 },
+      { k: 'invite_heading', label: 'Greeting', max: 40 },
+      { k: 'invite_message', label: 'Invitation message', type: 'textarea', rows: 3, max: 220 },
+      { k: 'countdown_title', label: 'Countdown title', max: 34 }
+    ]},
+    { title: '🕰️ Schedule of Events', open: true, fields: [
+      { k: 'schedule_title', label: 'Section title', max: 30, opt: false },
+      { k: 'events', type: 'list', item: 'event', presetKey: 'name', presets: ['Guest Arrival', 'Nikah Ceremony', 'Baraat', 'Pheras', 'Varmala', 'Mocktail Hour', 'Dinner', 'Qawwali', 'Dance', 'Rukhsati'], fields: [
+        { k: 'time', label: 'Time', type: 'time', opt: false },
+        { k: 'name', label: 'Event name', max: 22, opt: false }
+      ]}
+    ]},
+    { title: '📍 Venue', open: true, fields: [
+      { k: 'venue', label: 'Venue name', req: true, max: 50 },
+      { k: 'venue_address', label: 'Venue address', max: 110 },
+      { k: 'venue_map_url', label: 'Google Maps link', type: 'url', hint: 'the map is found from the address anyway', ph: 'https://maps.app.goo.gl/…' }
+    ]},
+    { title: '👗 Dress Code & Gifts', fields: [
+      { k: 'dress_code', label: 'Dress code note', type: 'textarea', rows: 2, max: 140 },
+      { k: 'gift_note', label: 'Gift preference note', type: 'textarea', rows: 2, max: 120 }
+    ]},
+    { title: '✅ RSVP, Closing & Music', fields: [
+      { k: 'rsvp_message', label: 'RSVP message', type: 'textarea', rows: 2, max: 140 },
+      { k: 'rsvp_whatsapp', label: 'WhatsApp number for RSVPs', type: 'tel', max: 16, ph: '919876543210', hint: 'with country code' },
+      { k: 'rsvp_deadline', label: 'Reply-by date', type: 'date' },
+      { k: 'closing_line', label: 'Closing line', max: 40 },
+      { k: 'music_enabled', label: 'Background music (soft piano)', type: 'toggle' }
+    ]}
+  ]
+};
+</script>
+<script src="assets/jfy-codec.js"></script>
+<script src="assets/editor.js"></script>
+</body>
+</html>

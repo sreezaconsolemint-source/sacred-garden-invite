@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#f9f0e0">
+<title>The Sacred Garden — Wedding Invitation</title>
+<meta property="og:title" content="The Sacred Garden — Wedding Invitation">
+<meta property="og:description" content="You are warmly invited. Tap to open the invitation.">
+<link rel="preload" href="assets/fonts/BeauRivage-400-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/ImperialScript-400-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/fonts/fonts.css">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body class="is-locked">
+<audio id="bgm" loop preload="auto"></audio>
+
+<!-- ============ ENVELOPE INTRO ============ -->
+<div id="intro" aria-label="Open your invitation" role="button" tabindex="0">
+  <div class="env" id="env">
+    <div class="env__inside"></div>
+    <div class="env__glow"></div>
+    <div class="env__w env__w--lr"><div class="env__flap env__flap--l"></div></div>
+    <div class="env__w env__w--lr"><div class="env__flap env__flap--r"></div></div>
+    <div class="env__w env__w--b"><div class="env__flap env__flap--b"></div></div>
+    <div class="env__top" id="envTop"><div class="env__flap env__flap--t"></div></div>
+    <div class="env__seal" id="envSeal"><img src="assets/img/seal.webp" alt=""><span class="env__mono" data-bind="monogram">A&amp;Z</span></div>
+  </div>
+  <div class="tap"><div class="tap__chev"></div><div class="tap__lbl">Tap to open</div></div>
+</div>
+
+<button id="audioBtn" type="button" aria-label="Pause music">
+  <svg class="i-pause" viewBox="0 0 24 24"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>
+  <svg class="i-play" viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
+</button>
+
+<main id="page">
+  <!-- ============ 1. HERO ============ -->
+  <section class="sec s-hero" id="s-hero">
+    <div class="a hero-art"><img data-src-k="hero_image" src="assets/img/hero.webp" alt=""><div class="petals" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
+    <div class="a hero-glow"></div>
+    <p class="a t-script hero-label" data-hero data-bind="hero_label" data-opt>Wedding Day</p>
+    <p class="a t-ovo hero-date" data-hero data-bind="date_short">24.01.27</p>
+    <h1 class="a t-names hero-names" data-hero><span class="fit" data-bind="groom_name">Ayaan</span><span class="gap"></span><span class="fit" data-bind="bride_name">Zoya</span></h1>
+    <p class="a t-script hero-amp" data-hero>&amp;</p>
+    <a class="a t-script hero-scroll" href="#s-count">Scroll down</a>
+    <svg class="a chev bob hero-chev" viewBox="0 0 25 15.86"><path d="M1 1C4.37 5.44 9.14 9.57 12.5 14C16.8 9.57 19.69 5.44 23.99 1" fill="none" stroke="#937100" stroke-linecap="round"/></svg>
+    <img class="a sway sway--a hero-fl" src="assets/img/flowers_left.webp" alt="">
+    <img class="a sway sway--b hero-fr" src="assets/img/flowers_right.webp" alt="">
+    <div class="a paper paper--hero"></div>
+    <p class="a blessing" data-bind="blessing" data-opt dir="auto"></p>
+    <p class="a t-script tagline" data-anim="fadein" data-dur="1" data-bind="tagline" data-opt data-ml></p>
+    <div class="a t-body invite" data-anim="fadein" data-dur="2" data-delay=".2"><span data-bind="invite_heading" data-opt></span><span data-bind="invite_message" data-opt data-ml></span></div>
+  </section>
+
+  <!-- ============ 2. COUNTDOWN ============ -->
+  <section class="sec s-count" id="s-count">
+    <h2 class="a t-script sec-title" data-bind="countdown_title" data-opt>Our Big Day Begins In</h2>
+    <div class="a cd" id="cd" data-anim="fadeinup" data-dur="1" data-dist="100">
+      <div class="cd__b" id="cd-d"><div class="cd__w"><div class="cd__n">00</div></div><div class="cd__l">Days</div></div>
+      <div class="cd__s s1">:</div>
+      <div class="cd__b" id="cd-h"><div class="cd__w"><div class="cd__n">00</div></div><div class="cd__l">Hours</div></div>
+      <div class="cd__s s2">:</div>
+      <div class="cd__b" id="cd-m"><div class="cd__w"><div class="cd__n">00</div></div><div class="cd__l">Minutes</div></div>
+      <div class="cd__s s3">:</div>
+      <div class="cd__b" id="cd-s"><div class="cd__w"><div class="cd__n">00</div></div><div class="cd__l">Seconds</div></div>
+    </div>
+    <p class="a t-body cd-done" id="cdDone" hidden>Today is the day!</p>
+  </section>
+
+  <!-- ============ 3. SCHEDULE ============ -->
+  <section class="sec s-sched" id="s-sched" data-opt-sec="events">
+    <div class="a paper paper--sched"></div>
+    <h2 class="a t-script sec-title sched-title" data-bind="schedule_title">Schedule of Events</h2>
+    <svg class="a orn-l" data-anim="fadeinleft" data-dur="2" data-dist="40" viewBox="0 0 79 41"><use href="#flourish"/></svg>
+    <svg class="a orn-r" data-anim="fadeinright" data-dur="2" data-dist="40" viewBox="0 0 79 41"><use href="#flourish" transform="translate(79 0) scale(-1 1)"/></svg>
+    <div class="tl" id="tl"><div class="a tl__line" id="tlLine"></div><img class="a tl__rose" id="tlRose" src="assets/img/rose.webp" alt=""></div>
+  </section>
+
+  <!-- ============ 4. LOCATION ============ -->
+  <section class="sec s-loc" id="s-loc" data-opt-sec="venue">
+    <h2 class="a t-script sec-title">Location</h2>
+    <svg class="a loc-orn" data-anim="zoomin" data-dur="3" data-scale=".9" viewBox="0 0 92 28"><use href="#crest-sm"/></svg>
+    <div class="petal-fall" aria-hidden="true"><i class="pf1"></i><i class="pf2"></i><i class="pf3"></i><i class="pf4"></i><i class="pf5"></i><i class="pf6"></i></div>
+    <p class="a t-body loc-name" data-anim="fadeinup" data-dur="2" data-dist="40" data-bind="venue">Taj Falaknuma Palace</p>
+    <p class="a t-body loc-addr" data-anim="fadeinup" data-dur="2" data-dist="40"><span data-bind="venue_address" data-opt data-prefix="Address: "></span></p>
+    <img class="a loc-art" data-anim="zoomin" data-dur="1" data-scale=".9" src="assets/img/venue.webp" alt="">
+  </section>
+
+  <!-- ============ 5. MAP ============ -->
+  <section class="sec s-map" id="s-map" data-opt-sec="venue">
+    <svg class="a map-frame" viewBox="0 0 341 341"><defs><linearGradient id="gfr" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#c49a54"/><stop offset=".5" stop-color="#e6c88e"/><stop offset="1" stop-color="#b8863f"/></linearGradient></defs><rect x="1.5" y="1.5" width="338" height="338" rx="18" fill="none" stroke="url(#gfr)" stroke-width="2.4"/></svg>
+    <div class="a map-box"><iframe id="mapFrame" title="Venue map" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe><a class="map-open" id="mapOpen" target="_blank" rel="noopener">Open in Google Maps ↗</a></div>
+    <svg class="a map-orn map-orn--t" viewBox="0 0 190 43"><use href="#crest"/></svg>
+    <svg class="a map-orn map-orn--b" viewBox="0 0 190 43"><use href="#crest" transform="translate(0 43) scale(1 -1)"/></svg>
+  </section>
+
+  <!-- ============ 6. DRESS CODE & GIFTS ============ -->
+  <section class="sec s-notes" id="s-notes">
+    <div class="a paper paper--notes"></div>
+    <img class="a sway sway--c notes-vine" src="assets/img/vine.webp" alt="">
+    <img class="a sway sway--d notes-fl" src="assets/img/flowers_left.webp" alt="">
+    <div class="notes" id="notes">
+      <div class="note" data-opt-wrap="dress_code"><h2 class="t-script sec-title-in">Dress Code</h2><p class="t-body note__p" data-anim="fadeinup" data-dur="2" data-dist="40" data-bind="dress_code"></p></div>
+      <div class="note" data-opt-wrap="gift_note"><h2 class="t-script sec-title-in">Gift Preference</h2><p class="t-body note__p" data-anim="fadeinup" data-dur="2" data-dist="40" data-bind="gift_note"></p></div>
+    </div>
+  </section>
+
+  <!-- ============ 7. RSVP ============ -->
+  <section class="sec s-rsvp" id="s-rsvp">
+    <h2 class="a t-script sec-title">Confirm Your Attendance</h2>
+    <p class="a t-body rsvp-p" data-anim="fadeinup" data-dur="2" data-dist="40" data-bind="rsvp_message" data-opt></p>
+    <button class="a rsvp-seal" id="rsvpOpen" type="button" data-anim="zoomin" data-dur="1.5" data-delay=".5" data-scale=".9" aria-label="Open the RSVP form">
+      <img src="assets/img/seal.webp" alt=""><span class="rsvp-seal__t">RSVP</span><svg class="rsvp-seal__o" viewBox="0 0 60 10"><use href="#tiny"/></svg>
+    </button>
+    <svg class="a chev bob rsvp-chev" viewBox="0 0 25 15.86"><path d="M1 14.5C4.37 10.1 9.14 5.9 12.5 1.5C16.8 5.9 19.69 10.1 23.99 14.5" fill="none" stroke="#937100" stroke-linecap="round"/></svg>
+    <button class="a t-script bob rsvp-click" type="button" onclick="document.getElementById('rsvpOpen').click()">Click to open</button>
+  </section>
+
+  <!-- ============ 8. CLOSING ============ -->
+  <section class="sec s-end" id="s-end">
+    <img class="a end-photo" data-src-k="couple_photo" src="assets/img/couple.webp" alt="The couple">
+    <div class="a end-fade"></div>
+    <h2 class="a t-script sec-title end-title" data-anim="fadein" data-dur="1" data-bind="closing_line" data-opt></h2>
+    <p class="a t-body end-names" data-anim="fadeinup" data-dur="2" data-dist="40" data-bind="names_and">Ayaan and Zoya</p>
+    <img class="a sway sway--e end-border" src="assets/img/border.webp" alt="">
+  </section>
+  <footer class="credit" id="credit"><span data-bind="music_credit" data-opt></span><br>Artwork &amp; design: original illustrations for Just For You</footer>
+</main>
+
+<!-- ============ RSVP POPUP ============ -->
+<div class="pop" id="pop" hidden role="dialog" aria-modal="true" aria-labelledby="popT">
+  <button class="pop__x" id="popX" type="button" aria-label="Close dialog window"><svg width="23" height="23" viewBox="0 0 23 23"><g fill="#fff"><rect transform="translate(11.31 11.31) rotate(-45) translate(-11.31 -11.31)" x="10.31" y="-3.69" width="2" height="30"/><rect transform="translate(11.31 11.31) rotate(45) translate(-11.31 -11.31)" x="10.31" y="-3.69" width="2" height="30"/></g></svg></button>
+  <form class="pop__box" id="rsvpForm" novalidate>
+    <h3 id="popT">Confirm Your Attendance</h3>
+    <p class="pop__d" data-bind="rsvp_by" data-opt></p>
+    <label class="pf"><span>Your name</span><input name="name" required autocomplete="name"></label>
+    <div class="pf"><span>Will you be attending?</span>
+      <label class="rd"><input type="radio" name="att" value="Joyfully accepts" required><i></i>Joyfully accepts</label>
+      <label class="rd"><input type="radio" name="att" value="Regretfully declines"><i></i>Regretfully declines</label></div>
+    <label class="pf"><span>Number of guests attending</span><input name="guests" inputmode="numeric"></label>
+    <label class="pf"><span>A song that gets you dancing</span><input name="song"></label>
+    <label class="pf"><span>Children attending</span><small>Please share their names and ages.</small><input name="kids"></label>
+    <p class="pop__err" id="popErr" hidden>Please add your name and choose an option.</p>
+    <button class="pop__btn" type="submit"><span>Submit</span><i class="shine"></i></button>
+    <p class="pop__ok" id="popOk" hidden>Thank you! WhatsApp will open with your reply — just press send.</p>
+  </form>
+</div>
+
+<!-- SVG ornaments (original drawings) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <g id="flourish" fill="none" stroke="#b48c3d" stroke-width="1.3" stroke-linecap="round">
+      <path d="M77 21 C60 21 50 17 40 13 C30 9 21 11 18 18 C15 25 22 30 27 26 C31 23 28 18 24 19"/>
+      <path d="M40 13 C34 22 26 30 14 31 C8 31 4 28 3 24"/>
+      <path d="M77 21 C64 22 56 26 50 31 C46 34 41 34 39 31"/>
+      <path d="M58 19 c3 -6 9 -8 13 -6 c-3 5 -8 7 -13 6z" fill="#b48c3d" stroke="none"/>
+      <path d="M48 28 c2 5 7 7 11 5 c-2 -4 -7 -6 -11 -5z" fill="#b48c3d" stroke="none"/>
+      <circle cx="3" cy="24" r="1.6" fill="#b48c3d" stroke="none"/>
+      <path d="M11 13 c-4 -3 -4 -8 0 -10 c3 3 3 7 0 10z" fill="#b48c3d" stroke="none" opacity=".85"/>
+    </g>
+    <g id="crest-sm" fill="none" stroke="#b48c3d" stroke-width="1.1" stroke-linecap="round">
+      <path d="M46 6 c-3 5 -3 9 0 13 c3 -4 3 -8 0 -13z" fill="#c7a258" stroke="none"/>
+      <path d="M2 18 H38 M54 18 H90" opacity=".7"/>
+      <path d="M44 19 C38 26 28 26 24 21 C21 17 26 13 30 16 C33 18 31 22 28 21"/>
+      <path d="M48 19 C54 26 64 26 68 21 C71 17 66 13 62 16 C59 18 61 22 64 21"/>
+      <circle cx="46" cy="22" r="1.6" fill="#b48c3d" stroke="none"/>
+    </g>
+    <g id="crest" fill="none" stroke="#c19a52" stroke-width="1.2" stroke-linecap="round">
+      <path d="M8 38 H70 M120 38 H182" opacity=".75"/>
+      <circle cx="4" cy="38" r="2" fill="#c19a52" stroke="none"/><circle cx="186" cy="38" r="2" fill="#c19a52" stroke="none"/>
+      <path d="M95 8 c-5 8 -5 16 0 22 c5 -6 5 -14 0 -22z" fill="#d1ad66" stroke="none"/>
+      <path d="M89 14 c-6 2 -9 8 -7 14 c5 -2 8 -8 7 -14z M101 14 c6 2 9 8 7 14 c-5 -2 -8 -8 -7 -14z" fill="#c9a35b" stroke="none" opacity=".9"/>
+      <path d="M92 33 C80 40 64 40 58 33 C54 28 60 22 66 26 C70 29 67 34 63 33"/>
+      <path d="M98 33 C110 40 126 40 132 33 C136 28 130 22 124 26 C120 29 123 34 127 33"/>
+      <path d="M58 33 C50 28 42 30 38 35 M132 33 C140 28 148 30 152 35"/>
+      <circle cx="95" cy="35" r="2.2" fill="#c19a52" stroke="none"/>
+    </g>
+    <g id="tiny" fill="none" stroke="#d9b56c" stroke-width=".9" stroke-linecap="round">
+      <path d="M2 5 H22 M38 5 H58"/><path d="M30 1.5 l3 3.5 -3 3.5 -3 -3.5z" fill="#d9b56c" stroke="none"/>
+      <path d="M22 5 c2 -3 4 -3 5 0 M38 5 c-2 3 -4 3 -5 0"/>
+    </g>
+  </defs>
+</svg>
+
+<script src="assets/sample-data.js"></script>
+<script src="assets/jfy-codec.js"></script>
+<script src="assets/data-loader.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
